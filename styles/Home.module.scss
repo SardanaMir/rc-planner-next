@@ -9,6 +9,11 @@
     align-items: center;
     gap: 32px;
   }
+  .monthName{
+    display: block;
+    width: 100px;
+    text-align: center;
+  }
   .loginBtn {
     width: 124px;
     height: 60px;
@@ -32,6 +37,9 @@
     background: rgb(239, 239, 239);
     border: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover {
       background: darken(#f0f0f0, 5%);
     }
