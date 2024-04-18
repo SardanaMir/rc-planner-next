@@ -1,11 +1,14 @@
 "use client";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { DateTime } from "luxon";
 import Image from "next/image";
+import { openModal } from "../redux/slices/modalSlice";
 import { logo, leftArrow, rightArrow } from "../public/images";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
+    const dispatch = useDispatch()
     const WEEKDAYS: string[] = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
     const totalDays: number = 42;
     const today = DateTime.now();
@@ -30,6 +33,16 @@ export default function Home() {
     const nextMonthHandler = () => {
       setCurrentDay((prev) => prev.plus({ month: 1 }));
     };
+    const handleLogin = () =>{
+        dispatch(
+            openModal({
+              modalType: "auth",
+              modalProps: {
+                title: 'auth modal window'
+              }
+            })
+        );
+    }
   return (
     <>
       <header className={styles.header}>
@@ -39,11 +52,11 @@ export default function Home() {
                 <h3>{monthName}</h3>
             </div>
             <div className={styles.panel}>
-                <button className={styles.leftArrow} onClick={()=>prevMonthHandler()}><Image src={leftArrow} alt="prev"/></button>
-                <button className={styles.rightArrow} onClick={()=>nextMonthHandler()}><Image src={rightArrow} alt="next"/></button>
+                <button className={styles.leftArrow} onClick={() => prevMonthHandler()}><Image src={leftArrow} alt="prev"/></button>
+                <button className={styles.rightArrow} onClick={() => nextMonthHandler()}><Image src={rightArrow} alt="next"/></button>
             </div>
         </div>
-        <button className={styles.loginBtn}>Войти</button>
+        <button className={styles.loginBtn} onClick={() => handleLogin()}>Войти</button>
       </header>
       <main className={styles.root}>
         <div className={styles.days}>
