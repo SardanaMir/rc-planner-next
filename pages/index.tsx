@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { DateTime } from "luxon";
 import Image from "next/image";
+import { Calendar } from "../components";
 import { openModal } from "../redux/slices/modalSlice";
 import { logo, leftArrow, rightArrow } from "../public/images";
 import styles from "../styles/Home.module.scss";
@@ -58,24 +59,7 @@ export default function Home() {
         </div>
         <button className={styles.loginBtn} onClick={() => handleLogin()}>Войти</button>
       </header>
-      <main className={styles.root}>
-        <div className={styles.days}>
-          {WEEKDAYS.map((day) => (
-            <h4 key={day}>{day}</h4>
-          ))}
-        </div>
-        <table className={styles.table}>
-          <tbody className={styles.calendar}>
-            {dateArr.map((date, index) => (
-              <tr className={styles.block} key={index}>
-                <th className={styles.date}>
-                  {date.toFormat("d")}
-                </th>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </main>
+        <Calendar WEEKDAYS={WEEKDAYS} dateArr={dateArr}/>
     </>
   );
 }
