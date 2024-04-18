@@ -89,6 +89,18 @@
     justify-content: flex-end;
     color: rgb(1, 1, 1);
     border: 0.5px solid rgb(179, 179, 188);
+    &:nth-child(1){
+      border-top-left-radius: 25px;
+    }
+    &:nth-child(7){
+      border-top-right-radius: 25px;
+    }
+    &:nth-child(36){
+      border-bottom-left-radius: 25px;
+    }
+    &:nth-child(42){
+      border-bottom-right-radius: 25px;
+    }
   }
   .date {
     font-family: "TT Commons Medium", sans-serif;

@@ -3,8 +3,6 @@ import { useState } from "react";
 import { DateTime } from "luxon";
 import Image from "next/image";
 import { logo, leftArrow, rightArrow } from "../public/images";
-
-
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
@@ -37,13 +35,13 @@ export default function Home() {
       <header className={styles.header}>
         <Image src={logo} alt="logo"/>
         <div className={styles.wrapper}>
-        <div className={styles.monthName}>
-            <h3>{monthName}</h3>
-        </div>
-          <div className={styles.panel}>
-            <button className={styles.leftArrow} onClick={()=>prevMonthHandler()}><Image src={leftArrow} alt="prev"/></button>
-            <button className={styles.rightArrow} onClick={()=>nextMonthHandler()}><Image src={rightArrow} alt="next"/></button>
-          </div>
+            <div className={styles.monthName}>
+                <h3>{monthName}</h3>
+            </div>
+            <div className={styles.panel}>
+                <button className={styles.leftArrow} onClick={()=>prevMonthHandler()}><Image src={leftArrow} alt="prev"/></button>
+                <button className={styles.rightArrow} onClick={()=>nextMonthHandler()}><Image src={rightArrow} alt="next"/></button>
+            </div>
         </div>
         <button className={styles.loginBtn}>Войти</button>
       </header>
